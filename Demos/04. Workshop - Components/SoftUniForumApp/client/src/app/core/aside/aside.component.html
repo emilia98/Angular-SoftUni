@@ -1,0 +1,25 @@
+<aside>
+    <div class="aside">
+        <h2 class="title">
+            {{ title }}
+        </h2>
+         <!--
+        <div *ngIf="items">
+            <ng-template ngFor let-item [ngForOf]="items">
+                <div class="aside-theme">
+
+                </div>
+            </ng-template>
+        </div>
+        -->
+        <div *ngIf="items">
+            <div *ngFor="let item of items; let i = index;" class="aside-theme">
+               <ng-container *ngTemplateOutlet="itemTemplateRef; context: { $implicit: item, index: i }"></ng-container>
+            </div>
+        </div>
+       
+    </div>
+    <div *ngIf="!items">
+        Loading...
+    </div>
+</aside>
